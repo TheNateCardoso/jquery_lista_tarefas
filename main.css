@@ -8,73 +8,108 @@
 header {
     background-color: #389ab0;
     color: azure;
-    padding: 16px;
+    padding: 20px;
     text-align: center;
     text-transform: uppercase;
-    font-style: italic;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
 }
 
 body{
-    background-color: #225561;
+    background-color: #194e5a;
+}
+
+#botao-new {
+    background-color: #d7b000c8;
+    color: azure;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
 }
 
 form {
+    display: none;
     background-color: #c8d6e5;
     padding: 24px;
     text-align: center;
+    max-width: 600px;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 input, button {
-    padding: 8px;
+    padding: 10px 16px;
     border-radius: 5px;
     border: none;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 #botao-add {
     background-color: #009432;
     color: azure;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#botao-add:hover {
-    background-color: #00b33c;
+    transition: all 0.3s ease;
 }
 
 #botao-cancel {
     background-color: #940000;
     color: azure;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#botao-cancel:hover {
-    background-color: #b30000;
+    margin-left: 8px;
+    transition: all 0.3s ease;
 }
 
 ul {
     max-width: 600px;
-    margin: 20px auto;
+    margin: 40px auto;
     list-style: none;
     padding: 0;
 }
 
 li {
     background-color: #f1f1f1;
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 5px;
+    padding: 16px;
+    margin: 12px 0;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    animation: itemEntrada 0.5s ease forwards;
+    transform: translateY(20px);
+    opacity: 0;
 }
 
-li:hover {
-    background-color: #ddd;
+@keyframes itemEntrada {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .completo {
     text-decoration: line-through;
-    color: #888;
+    color: #666;
+    background-color: #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    form {
+        margin: 20px 16px;
+    }
+    input {
+        width: 100%;
+        margin-bottom: 12px;
+    }
+    #botao-add, #botao-cancel {
+        width: 48%;
+        margin: 0;
+    }
+    header {
+        flex-direction: column;
+    }
 }
