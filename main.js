@@ -1,34 +1,36 @@
 $(document).ready(function() {
-    // Evento de submit do formulário
-    $('#form-tarefa').on('submit', function(e) {
-        e.preventDefault(); // Impede o recarregamento da página
+    // Controle do Formulário
+    $('#botao-new').click(function() {
+        $('form').slideDown(400);
+        $('#nome-tarefa').focus();
+    });
 
-        // Captura o valor do campo de texto
-        const nomeTarefa = $('#nome-tarefa').val();
-
-        // Verifica se o campo não está vazio
-        if (nomeTarefa.trim() === "") {
-            alert("Por favor, insira uma tarefa válida.");
-            return;
-        }
-
-        // Cria um novo item da lista
-        const novoItem = $('<li></li>').text(nomeTarefa);
-
-        // Adiciona o item à lista
-        $('#lista-tarefas').append(novoItem);
-
-        // Limpa o campo de texto
+    $('#botao-cancel').click(function() {
+        $('form').slideUp(400);
         $('#nome-tarefa').val('');
     });
 
-    // Evento de clique no botão "Cancelar"
-    $('#botao-cancel').click(function() {
-        $('#nome-tarefa').val(''); // Limpa o campo de texto
+    // Adição de Tarefas
+    $('#form-tarefa').submit(function(e) {
+        e.preventDefault();
+        const tarefa = $('#nome-tarefa').val().trim();
+        
+        if (!tarefa) {
+            alert('Digite uma tarefa válida');
+            return;
+        }
+
+        const novoItem = $('<li>')
+            .text(tarefa)
+            .hide()
+            .appendTo('#lista-tarefas')
+            .slideDown(400);
+
+        $('#nome-tarefa').val('');
     });
 
-    // Evento de clique nos itens da lista
+    // Marcar Tarefas
     $('#lista-tarefas').on('click', 'li', function() {
-        $(this).toggleClass('completo'); // Alterna a classe "completo"
+        $(this).toggleClass('completo');
     });
 });
