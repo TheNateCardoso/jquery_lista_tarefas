@@ -9,13 +9,16 @@
 <body>
     <header>
         <h1>Lista de Tarefas</h1>
+        <!-- Botão novo no header para mostrar o formulário -->
+        <button type="button" id="botao-new">Nova Tarefa +</button>
     </header>
     <form id="form-tarefa">
         <input type="text" id="nome-tarefa" placeholder="Digite uma tarefa" required>
         <button type="submit" id="botao-add">Adicionar</button>
-        <button type="reset" id="botao-cancel">Cancelar</button>
+        <button type="button" id="botao-cancel">Cancelar</button> <!-- Removido type="reset" -->
     </form>
     <ul id="lista-tarefas"></ul>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="./main.js"></script>
 </body>
